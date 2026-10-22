@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dollar$$ Markets</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+</div>
+
+<div class="app">
+
+
+    <header>
+
+        <div class="logo">
+            <div class="logo-box">$</div>
+
+            <div>
+                <h1>Dollar<span>$$</span></h1>
+                <small>Global Markets</small>
+            </div>
+        </div>
+
+        <div class="live">
+            <span></span>
+            Market Data
+        </div>
+
+    </header>
+
+
+
+    <section class="hero">
+
+        <div class="badge">
+            ● GLOBAL MARKET DATA
+        </div>
+
+        <h2>
+            One dashboard.<br>
+            <span>Every market.</span>
+        </h2>
+
+        <p>
+            Convert currencies, explore cryptocurrencies
+            and search public companies around the world.
+        </p>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="market-nav">
+
+        <button class="nav-btn active" data-page="currency">
+            <span>💱</span>
+            Currencies
+        </button>
+
+        <button class="nav-btn" data-page="crypto">
+            <span>₿</span>
+            Crypto
+        </button>
+
+        <button class="nav-btn" data-page="stocks">
+            <span>📈</span>
+            Stocks
+        </button>
+
+    </nav>
+
+
+
+    <section id="currency" class="page active">
+
+        <div class="section-header">
+
+            <div>
+                <p class="eyebrow">FOREIGN EXCHANGE</p>
+                <h2>Currency Converter</h2>
+            </div>
+
+            <div class="status">
+                <span></span>
+                Online
+            </div>
+
+        </div>
+
+
+        <div class="converter">
+
+            <div class="amount-box">
+
+                <label>Amount</label>
+
+                <input
+                    type="number"
+                    id="currencyAmount"
+                    value="100"
+                    min="0"
+                    step="any"
+                >
+
+            </div>
+
+
+            <div class="converter-row">
+
+                <div class="select-box">
+
+                    <label>From</label>
+
+                    <select id="currencyFrom"></select>
+
+                </div>
+
+
+                <button id="currencySwap" class="swap">
+                    ⇄
+                </button>
+
+
+                <div class="select-box">
+
+                    <label>To</label>
+
+                    <select id="currencyTo"></select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="currencyConvert"
+                class="main-button"
+            >
+                Convert Currency →
+            </button>
+
+
+            <div
+                id="currencyResult"
+                class="result hidden"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- CRYPTO -->
+    <!-- ============================= -->
+
+    <section id="crypto" class="page">
+
+        <div class="section-header">
+
+            <div>
+                <p class="eyebrow">DIGITAL ASSETS</p>
+                <h2>Crypto Market</h2>
+            </div>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                id="cryptoSearch"
+                placeholder="Search Bitcoin, Ethereum, Solana..."
+            >
+
+        </div>
+
+
+        <div class="crypto-converter">
+
+            <input
+                type="number"
+                id="cryptoAmount"
+                value="1"
+                min="0"
+                step="any"
+            >
+
+            <select id="cryptoFrom"></select>
+
+            <span>→</span>
+
+            <select id="cryptoTo"></select>
+
+            <button id="cryptoConvert">
+                Convert
+            </button>
+
+        </div>
+
+
+        <div
+            id="cryptoResult"
+            class="result hidden"
+        ></div>
+
+
+        <div class="table-card">
+
+            <div class="table-head">
+                <span>Asset</span>
+                <span>Price</span>
+                <span>24h</span>
+                <span>Market Cap</span>
+            </div>
+
+            <div id="cryptoList"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- STOCKS -->
+    <!-- ============================= -->
+
+    <section id="stocks" class="page">
+
+        <div class="section-header">
+
+            <div>
+                <p class="eyebrow">EQUITY MARKETS</p>
+                <h2>Stock Explorer</h2>
+            </div>
+
+        </div>
+
+
+        <div class="stock-search">
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input
+                    id="stockSearch"
+                    placeholder="Search company or ticker — AAPL, Tesla, SOFI..."
+                >
+
+            </div>
+
+            <button id="stockSearchButton">
+                Search
+            </button>
+
+        </div>
+
+
+        <p class="helper">
+            Search large-cap, mid-cap and smaller public companies by name or ticker.
+        </p>
+
+
+        <div id="stockResults"></div>
+
+
+        <div id="stockDetail" class="stock-detail hidden">
+
+            <div class="stock-title">
+
+                <div>
+                    <p id="stockExchange"></p>
+                    <h2 id="stockName"></h2>
+                    <span id="stockTicker"></span>
+                </div>
+
+                <button id="closeStock">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="stock-price">
+
+                <h2 id="stockPrice"></h2>
+
+                <span id="stockChange"></span>
+
+            </div>
+
+
+            <div class="stock-stats">
+
+                <div>
+                    <span>Open</span>
+                    <strong id="stockOpen">—</strong>
+                </div>
+
+                <div>
+                    <span>High</span>
+                    <strong id="stockHigh">—</strong>
+                </div>
+
+                <div>
+                    <span>Low</span>
+                    <strong id="stockLow">—</strong>
+                </div>
+
+                <div>
+                    <span>Previous close</span>
+                    <strong id="stockPrevious">—</strong>
+                </div>
+
+                <div>
+                    <span>Volume</span>
+                    <strong id="stockVolume">—</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        Dollar$$ Markets • Educational market dashboard
+    </footer>
+
+</div>
+
+
+<script src="js/currency.js"></script>
+<script src="js/crypto.js"></script>
+<script src="js/stocks.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
